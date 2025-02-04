@@ -1,12 +1,26 @@
-import "./App.css";
-import { Button } from "./components/ui/button";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
+import { BrowserRouter, Route, Routes } from "react-router";
+import Navigation from "./container/Home/Navigation";
 
-function App() {
+export default function App() {
   return (
-    <>
-      <Button>Hello</Button>
-    </>
+    <header>
+      <SignedOut>
+        <SignInButton />
+      </SignedOut>
+      <SignedIn>
+        <UserButton />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Navigation />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </SignedIn>
+    </header>
   );
 }
-
-export default App;
