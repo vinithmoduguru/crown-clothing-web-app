@@ -4,6 +4,11 @@
 
 /* ... */
 
+body {
+  font-family: "Josefin Sans", "Open Sans", sans-serif;
+  padding: 20px 40px;
+}
+
 @layer base {
   :root {
 
