@@ -32,7 +32,7 @@ export default function CategoriesPreview() {
     <>
       {data?.map((category) =>
         isProductsPending ? (
-          <Loader2 className="animate-spin" />
+          <Loader2 key={category._id} className="animate-spin" />
         ) : (
           <CategoryPreview
             key={category._id}
