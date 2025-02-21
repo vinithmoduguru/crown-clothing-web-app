@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router";
 import CrwnLogo from "../../assets/crown.svg";
-import CartIcon from "../cart-icon/cartIcon";
+import CartIcon from "../cart/cartIcon";
 
 export default function Navigation() {
   return (

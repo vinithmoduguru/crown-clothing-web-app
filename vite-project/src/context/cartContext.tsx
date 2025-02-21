@@ -1,10 +1,11 @@
 import React, { createContext, useContext } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
+import { Product } from "../container/Home/shop/shop-services";
 
 export type CartItem = {
   product_id: string;
   quantity: number;
-};
+} & Partial<Product>;
 
 interface CartContextType {
   cartItems?: CartItem[];

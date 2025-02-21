@@ -8,9 +8,18 @@ export const getProducts = async (
   try {
     // Get category from request query params
     const categoryId = req.query.categoryId as string;
+    let productIds = req.query.productIds;
     const filter: any = { isActive: true };
     if (categoryId) {
       filter.categoryId = categoryId;
+    }
+
+    if (productIds && typeof productIds === "string") {
+      productIds = productIds.split(",");
+    }
+
+    if (productIds) {
+      filter._id = { $in: productIds };
     }
     const products = await Product.find(filter, {
       title: 1,
