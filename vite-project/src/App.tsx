@@ -11,11 +11,11 @@ import {
   SignInButton,
   SignedIn,
   UserButton,
-  useAuth,
+  useAuth
 } from "@clerk/clerk-react";
 
 export default function App() {
-  const { isSignedIn } = useAuth();
+  const { isSignedIn   } = useAuth();
   return (
     <header>
       <SignedOut>
