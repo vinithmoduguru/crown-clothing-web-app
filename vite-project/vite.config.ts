@@ -13,7 +13,7 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      "/api": "https://crown-clothing-backend-pi.vercel.app/",
+      "/api": "https://crown-clothing-backend-5pb9.onrender.com/",
     }
   }
 });
