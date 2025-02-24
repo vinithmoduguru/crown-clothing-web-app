@@ -14,14 +14,18 @@ export type Product = {
   price: number;
 };
 
+const API_URL = import.meta.env.VITE_BACKEND_ENDPOINT;
+
+console.log(API_URL);
+
 export const getCategories = async () => {
-  const res = await fetch(`/api/categories`);
+  const res = await fetch(`${API_URL}/api/categories`);
   const data = await res.json();
   return data as Category[];
 };
 
 export const getProducts = async (params?: string) => {
-  const res = await fetch(`/api/products${params ? `?${params}` : ""}`);
+  const res = await fetch(`${API_URL}/api/products${params ? `?${params}` : ""}`);
   const data = await res.json();
   return data as Product[];
 };
@@ -30,7 +34,7 @@ export const useProducts = (params?: string) => {
   return useQuery({
     queryKey: ["products", params],
     queryFn: async () => {
-      const res = await fetch(`/api/products${params ? `?${params}` : ""}`);
+      const res = await fetch(`${API_URL}/api/products${params ? `?${params}` : ""}`);
       if (!res.ok) throw new Error("Failed to fetch products");
       return res.json() as Promise<Product[]>;
     },

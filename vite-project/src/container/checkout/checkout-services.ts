@@ -1,7 +1,9 @@
 import { CartItem } from "../../context/cartContext";
 
+const API_URL = import.meta.env.VITE_BACKEND_ENDPOINT;
+
 export const createPaymentIntent = async (products: CartItem[]) => {
-  const res = await fetch("/api/payment/create-payment-intent", {
+  const res = await fetch(`${API_URL}/api/payment/create-payment-intent`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
