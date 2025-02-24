@@ -9,6 +9,7 @@ import {
   TableRow,
 } from "../../components/ui/table";
 import { Button } from "../../components/ui/button";
+import { createPaymentIntent } from "./checkout-services";
 
 export default function Checkout() {
   const { cartItems, removeCartItem, addItemToCart, decreaseCartItem } =
@@ -40,6 +41,11 @@ export default function Checkout() {
         quantity: cartItem?.quantity ?? 0,
       };
     }) || [];
+
+    const handlePayment = async () => {
+      const res = await createPaymentIntent(cartItemsData);
+      window.location.href = res.url;
+    };
 
   return (
     <>
@@ -91,6 +97,12 @@ export default function Checkout() {
           ))}
         </TableBody>
       </Table>
+      <Button
+        onClick={handlePayment}
+        className="mt-auto"
+      >
+        Proceed to Payment
+      </Button>
     </>
   );
 }

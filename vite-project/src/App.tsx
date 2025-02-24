@@ -4,6 +4,8 @@ import Home from "./container/Home/Home";
 import Shop from "./container/Home/shop/Shop";
 import { CartProvider } from "./context/cartContext";
 import Checkout from "./container/checkout/checkout";
+import PaymentCancel from "./container/payment/cancel";
+import PaymentSucess from "./container/payment/success";
 
 export default function App() {
   return (
@@ -15,6 +17,8 @@ export default function App() {
               <Route index element={<Home />} />
               <Route path="shop/*" element={<Shop />} />
               <Route path="checkout" element={<Checkout />} />
+              <Route path="payment/cancel" element={<PaymentCancel />} />
+              <Route path="payment/success" element={<PaymentSucess />} />
             </Route>
           </Routes>
         </BrowserRouter>
