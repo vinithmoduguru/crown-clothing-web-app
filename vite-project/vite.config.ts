@@ -13,7 +13,11 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      "/api": "https://crown-clothing-backend-5pb9.onrender.com/",
+      "/api": {
+        target: process.env.VITE_BACKEND_ENDPOINT,
+        changeOrigin: true,
+        secure: true
+      },
     }
   }
 });
