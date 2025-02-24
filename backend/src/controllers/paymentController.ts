@@ -27,8 +27,8 @@ export const createPayment = async (
       payment_method_types: ["card"],
       line_items: lineItems,
       mode: "payment",
-      success_url: `${process.env.APP_URL}/payment/success`,
-      cancel_url: `${process.env.APP_URL}/payment/cancel`,
+      success_url: `${process.env.CLIENT_URL}/payment/success`,
+      cancel_url: `${process.env.CLIENT_URL}/payment/cancel`,
     });
     res.status(200).json(session);
   } catch (error) {
